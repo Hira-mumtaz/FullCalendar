@@ -1,0 +1,53 @@
+#calendar1 {
+  max-width: 400px;        /* small clean box */
+  margin: 20px auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.fc-toolbar {
+    background-color: #0b5394; /* your desired color */
+    color: white; /* text color */
+    padding: 10px; /* optional spacing */
+    border-radius: 5px; /* optional rounded corners */
+}
+.fc .fc-toolbar-title {
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #0b5394;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.fc .fc-button-primary:disabled{
+    background: #ffa601;
+}
+.fc .fc-button-primary{
+    background-color: #0b5394;
+   
+    
+}
+.fc .fc-button-primary:hover {
+    background-color: #ffa601; /* your desired hover color */
+    color: white; /* optional: text color on hover */
+}
+
+/* Remove vertical and horizontal lines */
+.fc .fc-daygrid-day {    /* day cells */
+    border: none !important;
+}
+.fc .fc-col-header-cell-cushion {
+    color: #0b5394;
+    
+}
+h3{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.fc .fc-daygrid-day-top{
+    background-color: #f3f2f2;
+}

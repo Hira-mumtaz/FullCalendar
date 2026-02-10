@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link href="style.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
 
@@ -16,69 +16,30 @@ document.addEventListener('DOMContentLoaded', function () {
   var calendar1 = new FullCalendar.Calendar(calendarEl1, {
      headerToolbar: {
       start: 'title',
-      center: 'dayGridMonth,timeGridWeek',
+      // center: 'dayGridMonth,timeGridWeek',
       end: 'today prev,next'
     },
-
+ editable: true, 
     events: [
       { title: 'Meeting', start: '2026-02-10' },
       { title: 'Holiday', start: '2026-02-16', color:'red' }
     ],
-
-
+     eventClick: function(info) {
+    if (confirm("Do you want to delete this event?")) {
+      info.event.remove();
+    }
+  },
     initialView: 'dayGridMonth'
+    
   });
   calendar1.render();
 
-  // 🗓 Calendar 2 — Weekly Time Grid
-  var calendarEl2 = document.getElementById('calendar2');
-  var calendar2 = new FullCalendar.Calendar(calendarEl2, {
-     headerToolbar: {
-      start: 'title',
-      end: 'timeGridWeek,timeGridDay prev,next'
-    },
-    initialView: 'timeGridWeek',
-    editable: true,
-    selectable: true,
-    events: [
-      { title: 'Team Meeting', start: '2026-02-10T10:00:00' },
-      { title: 'Lunch Break', start: '2026-02-10T13:00:00', color:'green' }
-    ],
-     eventClick: function(info) {
-      if(confirm('Delete this event?')){
-        info.event.remove();
-      }
-    },
-    initialView: 'timeGridWeek',
-    scrollTime: '08:00:00'
-    
-  });
-  calendar2.render();
-
-  // ⏱ Calendar 3 — Timeline Scheduler
-  var calendarEl3 = document.getElementById('calendar3');
-  var calendar3 = new FullCalendar.Calendar(calendarEl3, {
-    initialView: 'resourceTimelineWeek'
-  });
-  calendar3.render();
-
 });
 </script>
-
 </head>
-
 <body>
 
 <h3>Month Calendar</h3>
 <div id="calendar1"></div>
-<br><br>
-
-<h3>Week Schedule Calendar</h3>
-<div id="calendar2"></div>
-<br><br>
-
-<h3>Timeline Scheduler Calendar</h3>
-<div id="calendar3"></div>
-
 </body>
 </html>
